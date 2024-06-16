@@ -23,11 +23,21 @@ set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 
 
 message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
+
+# track
+include_directories(/usr/include/eigen3)
+include_directories(${PROJECT_SOURCE_DIR}/include)
+message(${PROJECT_SOURCE_DIR}/include)
+
 #opencv
 set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/../3rdparty/opencv-4.9/install/lib/cmake/opencv4/)
 # set(OpenCV_DIR /home/orangepi/ubuntu_desktop/rknn/3rdparty/opencv/opencv-linux-aarch64/share/OpenCV/)
 message(STATUS "OpenCV_DIR: ${OpenCV_DIR}")
 find_package(OpenCV REQUIRED CONFIG)
+
+# message(${OpenCV_DIR})
+# 多核
+# find_package(OpenMP)
 
 # If the package has been found, several variables will
 # be set, you can find the full list with descriptions
@@ -115,6 +125,12 @@ add_executable(yolov5_rtsp_with_ffmpeg
   src/rknn/rknn_func.cc
   src/rknn/preprocess.cc
   src/rknn/postprocess.cc
+
+  src/bytetrack/BYTETracker.cpp
+  src/bytetrack/kalmanFilter.cpp
+  src/bytetrack/lapjv.cpp
+  src/bytetrack/STrack.cpp
+  src/bytetrack/utils.cpp
 )
 
 # add_executable(rtsp_send_opencv_mpp ${PROJECT_SOURCE_DIR}/src/rtsp_with_mpp_using_opencv.cpp)
