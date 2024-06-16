@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../rknn/runtime/RK356X/Linux/librknn_api/include",
+                "${workspaceFolder}/../3rdparty/opencv-4.9/install/include/opencv4",
+                "${workspaceFolder}/../3rdparty/librga-rockchip/build/meson_aarch64/install/include/rga",
+                "${workspaceFolder}/../3rdparty/rkmpp/install/include",
+                "${workspaceFolder}/../3rdparty/ffmpeg/include",
+                "${workspaceFolder}/../3rdparty/libdrm-2.4.120/install/include/libdrm",
+                "${workspaceFolder}/../3rdparty/libdrm-2.4.120/install/include"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-arm64"
+        }
+    ],
+    "version": 4
+}

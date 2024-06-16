@@ -1,0 +1,38 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "RK3568 (gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/install/rk_ffmpeg/rtsp_with_ffmpeg_using_opencv", //只改这里
+            "args": ["./model/RK3566_RK3568/yolov5s-640-640.rknn", "/home/orangepi/workspace/rknn_yolov5_demo/720p60hz.h264","264"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            //gdb路径
+            // "miDebuggerPath": "${workspaceFolder}/sudo_gdb",
+            "miDebuggerPath": "/usr/local/bin/gdb",
+            // "miDebuggerServerAddress": "192.168.1.15:6000",
+            "setupCommands": [
+                {
+                    "description": "Test",
+                    "text": "python import sys;sys.path.insert(0, '/usr/share/gcc/python');from libstdcxx.v6.printers import register_libstdcxx_printers;register_libstdcxx_printers(None)",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+            // ,
+            // "preLaunchTask": "task1" //可以新增一条
+        }
+    ]
+}
